@@ -11,7 +11,7 @@ define(function (require) {
     var tabifyAggResponse = Private(require('ui/agg_response/tabify/tabify'));
 
     // Initialization of plugin settings
-    $scope.$root.editorLine = {}; 
+    $scope.$root.editorLine = {};
     $scope.$root.editorLine.axisy = ["y","y2"];
     $scope.$root.editorLine.group = ["none","grouped"];
     $scope.$root.editorLine.typeOptions = ["line","bar","spline","step","area","area-step","area-spline"];
@@ -42,7 +42,7 @@ define(function (require) {
     	    				        break;
     	    				    case "max":
     							if ( max[subchart][key] > value ) {
-    								value = "";						
+    								value = "";
     							}
     	    				        break;
     	    				}
@@ -60,7 +60,7 @@ define(function (require) {
     	    		    case "max":
     					for (var key in max[subchart]) {
     						if ( max[subchart][key] > value ) {
-    							value = "";						
+    							value = "";
     						}
     					}
     	    		        break;
@@ -91,36 +91,36 @@ define(function (require) {
 	// find element of class chartc3 and clear
 	idchart = $element.children().find(".chartc3");
 	idchart.empty();
-	
+
 	for (var subchart in metrics) {
-	
+
 		console.log("----chart generator----");
-	
+
 		// create uniq id for subchart
 		var RandomId = "my_chart_" + (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-	
-		// add subchart	
+
+		// add subchart
 		$(idchart).append('<div id="'+ RandomId +'"></div>');
-	
+
 		// get element for subchart
 		var e = $element.children().find("#" + RandomId);
-	
+
 		// init for config c3
 	        var config = {};
 	        config.bindto = e[0];
 	        config.legend = {};
 	        config.data = {};
-	        config.data.x = 'data0'; 
+	        config.data.x = 'data0';
 	        config.data.columns = metrics[subchart];
-	
+
 		// check if data must be hide
 		if(typeof $scope.vis.params.configLine.datahide != "undefined") {
 			var obj = $scope.vis.params.configLine.datahide;
-			config.data.hide = config.legend.hide = Object.keys(obj).filter(function(key) {
+			config.data.hide = Object.keys(obj).filter(function(key) {
 				return obj[key];
 			});
 		}
-	
+
 		config.data.names = $scope.vis.params.configLine.names;
 	        config.data.types = $scope.vis.params.configLine.type;
 		config.data.groups = ( $scope.vis.params.configLinegrouped != "none" ) ? [group] : "";
@@ -131,15 +131,15 @@ define(function (require) {
 					color = $scope.vis.params.configLine_threshold_color1;
 				} else if (d.value >= $scope.vis.params.configLine_threshold_value2) {
 					color = $scope.vis.params.configLine_threshold_color2;
-				} 
+				}
 			}
 			return color;
 		} : {};
-	
+
 	        config.data.axes = $scope.vis.params.configLine.axisy;
-	
+
 	        config.axis = {};
-		
+
 		// set rotation of axis X
 	        config.axis.rotated = $scope.vis.params.configLine.rotated;
 		if ( typex == "timeseries" ) {
@@ -160,6 +160,9 @@ define(function (require) {
 	        config.axis.y2 = {show: $scope.vis.params.configLine.enableY2, tick: ( typeof $scope.vis.params.configLine.formaty2 != "undefined" ) ? fty[$scope.vis.params.configLine.formaty2] : "{}" };
 	        config.axis.y2.min = ( typeof $scope.vis.params.configLine.rangeminy2 != "undefined" ) ? autoscale(parseInt($scope.vis.params.configLine.rangeminy2), "min", "y2", $scope.vis.params.configLine.axisy, $scope.vis.params.configLine_autoscale, subchart) : "";
 	        config.axis.y2.max = ( typeof $scope.vis.params.configLine.rangemaxy2 != "undefined" ) ? autoscale(parseInt($scope.vis.params.configLine.rangemaxy2), "max", "y2", $scope.vis.params.configLine.axisy, $scope.vis.params.configLine_autoscale, subchart) : "";
+
+        // hide/show legend
+            config.legend.hide = ( typeof $scope.vis.params.hide_legend != "undefined" ) ? $scope.vis.params.hide_legend : false;
 
 		// set Y Grid Lines
 		config.grid = {};
@@ -187,15 +190,15 @@ define(function (require) {
 	id_filters = 1;
 	metrics = [];
 	filters = false;
-	
+
 	// get informations columns
         var columns = table.columns;
         columns.forEach(function (column, i) {
 		cols[i] = column.title;
                 var obj = column.aggConfig._opts;
                 if ( typeof obj != "undefined" ) {
-                        if ( obj.type == "filters") { 
-				id_filters = i; 
+                        if ( obj.type == "filters") {
+				id_filters = i;
 				filters = true;
 				subcharts = columns.length - (id_filters + 1);
 			}
@@ -205,7 +208,7 @@ define(function (require) {
 	// get label and check if filters
 	if (filters) {
 
-		if (subcharts < 2) { 
+		if (subcharts < 2) {
 			// init for get metrics
 			metrics["default"] = [];
     			min["default"] = {};
@@ -223,7 +226,7 @@ define(function (require) {
 					v[data[key][id_filters]].push(data[key][id_filters]);
                 	                label[data[key][id_filters]] = data[key][id_filters];
                 	        }
-				
+
 				v[data[key][id_filters]].push(data[key][id_filters + 1]);
 				v["data0"].push(data[key][0]);
         		};
@@ -231,9 +234,9 @@ define(function (require) {
 			v["data0"] = _.uniq(v["data0"]);
 
 			for (var key in v) {
-				metrics["default"].push(v[key]);	
+				metrics["default"].push(v[key]);
 				if ( key != "data0" ){
-					// max & min identification 		
+					// max & min identification
 					max["default"][key] = _.max(v[key]);
 					min["default"][key] = _.min(v[key]);
 					group[i] = key;
@@ -253,7 +256,7 @@ define(function (require) {
     					max[data[key][id_filters]] = {};
                 	        }
 
-				if( v[data[key][id_filters]]["data0"] === undefined ) {				
+				if( v[data[key][id_filters]]["data0"] === undefined ) {
 					v[data[key][id_filters]]["data0"]=[];
 					v[data[key][id_filters]]["data0"].push("data0");
 				}
@@ -261,12 +264,12 @@ define(function (require) {
 				v[data[key][id_filters]]["data0"].push(data[key][0]);
 
 				cols.forEach(function (column, i) {
-					if (i > id_filters) {	
+					if (i > id_filters) {
 						if( v[data[key][id_filters]][column] === undefined ) {
-							v[data[key][id_filters]][column]=[];		
+							v[data[key][id_filters]][column]=[];
 							v[data[key][id_filters]][column].push(column);
-							max[data[key][id_filters]][column]=[]; 	
-							min[data[key][id_filters]][column]=[]; 	
+							max[data[key][id_filters]][column]=[];
+							min[data[key][id_filters]][column]=[];
 						}
 						v[data[key][id_filters]][column].push(data[key][id_filters + i - 1]);
                 	                	label[column] = column;
@@ -280,7 +283,7 @@ define(function (require) {
 					var i = 0;
 					metrics[key].push(v[key][k]);
 					if ( k != "data0" ){
-						// max & min identification 		
+						// max & min identification
 						max[key][k] = _.max(v[key][k]);
 						min[key][k] = _.min(v[key][k]);
 						group[i] = k;
@@ -289,7 +292,7 @@ define(function (require) {
 				}
 			}
 		}
-	
+
 	} else {
 		metrics["default"] = [];
 	        cols.forEach(function (column, i) {
@@ -302,20 +305,20 @@ define(function (require) {
 			} else {
 				tmp.push('data0');
 			}
-	
+
 			for (var key in data) {
 	        	  	tmp.push(data[key][i]);
 				if ( typeof data[key][i] === 'string') {
 					typex = "category";
 				}
 			};
-			
+
 			if (i > 0){
-				// max & min identification 		
+				// max & min identification
 				max[column] = _.max(tmp);
 				min[column] = _.min(tmp);
 			}
-	
+
 			metrics["default"].push(tmp);
 		});
 	}
@@ -352,8 +355,8 @@ define(function (require) {
                    	hold = elem.height();
                   	wold = elem.width();
         	   }
-           }      
-         }, 
+           }
+         },
          true
     );
 
