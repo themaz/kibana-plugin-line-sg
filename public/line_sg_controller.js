@@ -171,7 +171,7 @@ define(function(require) {
                         return obj[key];
                     });
                 }
-
+                console.log($scope.vis.params.configLine.type);
                 config.data.names = $scope.vis.params.configLine.names;
                 config.data.types = $scope.vis.params.configLine.type;
                 config.data.groups = ($scope.vis.params.configLinegrouped != "none") ? [group] : "";
@@ -271,7 +271,7 @@ define(function(require) {
                 if ($scope.vis.params.configLine.type[subchart] == "bar") {
                     config.bar = {
                         "width": {
-                            "ratio": 0.9
+                            "ratio": 0.75
                         }
                     };
                 }
