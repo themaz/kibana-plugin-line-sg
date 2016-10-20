@@ -265,8 +265,8 @@ define(function(require) {
                 }
                 var w = elem.width();
                 $scope.chart[subchart].resize({
-                    height: h - 50,
-                    width: w - 50
+                    height: h - 10,
+                    width: w - 10
                 });
             }
         }
@@ -439,8 +439,8 @@ define(function(require) {
                     if (hold != h || wold != w) {
                         for (var subchart in metrics) {
                             $scope.chart[subchart].resize({
-                                height: h - 50,
-                                width: w - 50
+                                height: h - 10,
+                                width: w - 10
                             });
                         }
                         hold = elem.height();
