@@ -268,7 +268,7 @@ define(function(require) {
                 config.padding.right = 40;
 
                 for(var k in config.data.types) {
-                    if(config.data.types[k]) == "bar" {
+                    if(config.data.types[k] == "bar") {
                         config.bar = {
                             "width": {
                                 "ratio": 0.75
