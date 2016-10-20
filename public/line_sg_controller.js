@@ -264,10 +264,10 @@ define(function(require) {
                     var h = (elem.height() / subcharts);
                 }
                 var w = elem.width();
-                // $scope.chart[subchart].resize({
-                //     height: h,
-                //     width: w - 40
-                // });
+                $scope.chart[subchart].resize({
+                    height: h,
+                    width: w - 40
+                });
             }
         }
 
@@ -438,10 +438,10 @@ define(function(require) {
                 if (idchart.length > 0 && h > 0 && w > 0) {
                     if (hold != h || wold != w) {
                         for (var subchart in metrics) {
-                            // $scope.chart[subchart].resize({
-                            //     height: h,
-                            //     width: w - 40
-                            // });
+                            $scope.chart[subchart].resize({
+                                height: h,
+                                width: w - 40
+                            });
                         }
                         hold = elem.height();
                         wold = elem.width();
