@@ -160,6 +160,7 @@ define(function(require) {
                 var config = {};
                 config.bindto = e[0];
                 config.legend = {};
+                config.tooltip = {};
                 config.data = {};
                 config.data.x = 'data0';
                 config.data.columns = metrics[subchart];
