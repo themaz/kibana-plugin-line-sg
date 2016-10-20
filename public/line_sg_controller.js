@@ -175,7 +175,8 @@ define(function(require) {
                 config.data.types = $scope.vis.params.configLine.type;
                 console.log("config.data.types");
                 console.log(subchart);
-                console.log(config.data.types);
+                console.log(metrics[subchart]);
+                console.log(config.data.types[metrics[subchart]]);
                 console.log("config.data.types");
                 config.data.groups = ($scope.vis.params.configLinegrouped != "none") ? [group] : "";
                 config.data.colors = $scope.vis.params.configLine.colors;
