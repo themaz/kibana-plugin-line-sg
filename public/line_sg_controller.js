@@ -243,7 +243,7 @@ define(function(require) {
                 config.legend.hide = $scope.vis.params.hide_legend;
 
                 // enable/disable tooltip
-                config.tooltip.show = (typeof $scope.vis.params.enable_tooltip == "undefined") ? false : $scope.vis.params.disable_tooltip;
+                config.tooltip.show = (typeof $scope.vis.params.enable_tooltip == "undefined") ? false : $scope.vis.params.enable_tooltip;
 
                 // set Y Grid Lines
                 config.grid = {};
