@@ -171,9 +171,11 @@ define(function(require) {
                         return obj[key];
                     });
                 }
-                console.log($scope.vis.params.configLine.type);
                 config.data.names = $scope.vis.params.configLine.names;
                 config.data.types = $scope.vis.params.configLine.type;
+                console.log("config.data.types");
+                console.log(config.data.types);
+                console.log("config.data.types");
                 config.data.groups = ($scope.vis.params.configLinegrouped != "none") ? [group] : "";
                 config.data.colors = $scope.vis.params.configLine.colors;
                 config.data.color = ($scope.vis.params.configLine.threshold_enable) ? function(color, d) {
