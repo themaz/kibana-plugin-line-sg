@@ -24,6 +24,7 @@ define(function(require) {
             params: {
                 defaults: {
                     configLine: {},
+                    axisLabel: {},
                     configLine_threshold_data: '',
                     configLine_threshold_value1: 80,
                     configLine_threshold_color1: "#ffaa00",

@@ -194,12 +194,6 @@ define(function(require) {
                     };
                 }
 
-                // if subcharts show x label
-                config.axis.x.label = (subchart == "default") ? "" : {
-                    text: "filter by " + subchart,
-                    position: 'outer-center'
-                };
-
                 config.axis.x.label = $scope.vis.params.axisLabel.x;
                 config.axis.y.label = $scope.vis.params.axisLabel.y;
                 config.axis.y2.label = $scope.vis.params.axisLabel.y2;
