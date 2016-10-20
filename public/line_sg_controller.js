@@ -173,11 +173,6 @@ define(function(require) {
                 }
                 config.data.names = $scope.vis.params.configLine.names;
                 config.data.types = $scope.vis.params.configLine.type;
-                console.log("config.data.types");
-                console.log(subchart);
-                console.log(metrics[subchart]);
-                console.log(config.data.types[metrics[subchart]]);
-                console.log("config.data.types");
                 config.data.groups = ($scope.vis.params.configLinegrouped != "none") ? [group] : "";
                 config.data.colors = $scope.vis.params.configLine.colors;
                 config.data.color = ($scope.vis.params.configLine.threshold_enable) ? function(color, d) {
@@ -272,12 +267,16 @@ define(function(require) {
                 config.padding = {};
                 config.padding.right = 40;
 
-                if ($scope.vis.params.configLine.type[subchart] == "bar") {
-                    config.bar = {
-                        "width": {
-                            "ratio": 0.75
-                        }
-                    };
+                for(var k in config.data.types) {
+                    if(config.data.types[k]) == "bar" {
+                        config.bar = {
+                            "width": {
+                                "ratio": 0.75
+                            }
+                        };
+                        break;
+                    }
+
                 }
 
                 // generate c3 chart
