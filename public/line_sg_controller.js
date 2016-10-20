@@ -174,6 +174,7 @@ define(function(require) {
                 config.data.names = $scope.vis.params.configLine.names;
                 config.data.types = $scope.vis.params.configLine.type;
                 console.log("config.data.types");
+                console.log(subchart);
                 console.log(config.data.types);
                 console.log("config.data.types");
                 config.data.groups = ($scope.vis.params.configLinegrouped != "none") ? [group] : "";
