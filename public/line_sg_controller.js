@@ -17,6 +17,22 @@ define(function(require) {
         $scope.$root.editorLine.typeOptions = ["line", "bar", "spline", "step", "area", "area-step", "area-spline"];
         $scope.$root.editorLine.typeformat = ["none", "time", "percents", "seconds", "octets", "euros"];
         $scope.$root.editorLine.gridpos = ["start", "middle", "end"];
+        $scope.$root.editorLine.labelposX = {
+            "Inner Right (Default)": "inner-right",
+            "Inner Center": "inner-center",
+            "Inner Left": "inner-left",
+            "Outer Right": "outer-right",
+            "Outer Center": "outer-center",
+            "Outer Left": "outer-left",
+        };
+        $scope.$root.editorLine.labelposY = {
+            "Inner Top (Default)": "inner-top",
+            "Inner Middle": "inner-middle",
+            "Inner Bottom": "inner-bottom",
+            "Outer Top": "outer-top",
+            "Outer Middle": "outer-middle",
+            "Outer Bottom": "outer-bottom"
+        };
         $scope.$root.editorLine.gridcolor = {
             "black": "gridblack",
             "grey": "gridgrey",
@@ -211,8 +227,11 @@ define(function(require) {
 
                 // Set axis labels
                 config.axis.x.label = $scope.vis.params.axisLabel.x;
+                config.axis.x.position = $scope.vis.params.axisLabel.xPosition;
                 config.axis.y.label = $scope.vis.params.axisLabel.y;
+                config.axis.y.position = $scope.vis.params.axisLabel.yPosition;
                 config.axis.y2.label = $scope.vis.params.axisLabel.y2;
+                config.axis.y2.position = $scope.vis.params.axisLabel.y2Position;
 
                 // hide/show legend
                 config.legend.hide = $scope.vis.params.hide_legend;

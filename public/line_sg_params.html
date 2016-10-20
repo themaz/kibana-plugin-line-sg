@@ -65,8 +65,8 @@
             <div class="disgrp">
                 <div class="form-group">
                     <select ng-model="vis.params.configLine_threshold_data" class="form-control">
-		      <option ng-repeat="(key, value) in $root.editorLine.label" value="{{key}}">{{ key }}</option>
-		    </select>
+                        <option ng-repeat="(key, value) in $root.editorLine.label" value="{{key}}">{{ key }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Level1 Threshold:</label>
@@ -214,12 +214,30 @@
                 <input type="text" ng-model="vis.params.axisLabel.x" class="form-control" />
             </div>
             <div class="form-group">
+                <label>X Position:</label>
+                <select ng-model="vis.params.axisLabel.xPosition" class="form-control">
+                    <option ng-repeat="(name, value) in $root.editorLine.labelposX" value="{{value}}">{{ name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Y:</label>
                 <input type="text" ng-model="vis.params.axisLabel.y" class="form-control" />
             </div>
             <div class="form-group">
+                <label>Y Position:</label>
+                <select ng-model="vis.params.axisLabel.yPosition" class="form-control">
+                    <option ng-repeat="(name, value) in $root.editorLine.labelposY" value="{{value}}">{{ name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Y2:</label>
                 <input type="text" ng-model="vis.params.axisLabel.y2" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Y2 Position:</label>
+                <select ng-model="vis.params.axisLabel.y2Position" class="form-control">
+                    <option ng-repeat="(name, value) in $root.editorLine.labelposY" value="{{value}}">{{ name }}</option>
+                </select>
             </div>
         </div>
     </li>
