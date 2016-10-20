@@ -227,11 +227,11 @@ define(function(require) {
 
                 // Set axis labels
                 config.axis.x.label = $scope.vis.params.axisLabel.x;
-                config.axis.x.position = $scope.vis.params.axisLabel.xPosition;
+                config.axis.x.label.position = $scope.vis.params.axisLabel.xPosition;
                 config.axis.y.label = $scope.vis.params.axisLabel.y;
-                config.axis.y.position = $scope.vis.params.axisLabel.yPosition;
+                config.axis.y.label.position = $scope.vis.params.axisLabel.yPosition;
                 config.axis.y2.label = $scope.vis.params.axisLabel.y2;
-                config.axis.y2.position = $scope.vis.params.axisLabel.y2Position;
+                config.axis.y2.label.position = $scope.vis.params.axisLabel.y2Position;
 
                 // hide/show legend
                 config.legend.hide = $scope.vis.params.hide_legend;
