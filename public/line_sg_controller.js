@@ -226,12 +226,18 @@ define(function(require) {
                 config.axis.y2.max = (typeof $scope.vis.params.configLine.rangemaxy2 != "undefined") ? autoscale(parseInt($scope.vis.params.configLine.rangemaxy2), "max", "y2", $scope.vis.params.configLine.axisy, $scope.vis.params.configLine_autoscale, subchart) : "";
 
                 // Set axis labels
-                config.axis.x.label = $scope.vis.params.axisLabel.x;
-                config.axis.x.label.position = $scope.vis.params.axisLabel.xPosition;
-                config.axis.y.label = $scope.vis.params.axisLabel.y;
-                config.axis.y.label.position = $scope.vis.params.axisLabel.yPosition;
-                config.axis.y2.label = $scope.vis.params.axisLabel.y2;
-                config.axis.y2.label.position = $scope.vis.params.axisLabel.y2Position;
+                config.axis.x.label = {
+                    "text": $scope.vis.params.axisLabel.x,
+                    "position": (typeof $scope.vis.params.axisLabel.xPosition != "undefined") ? $scope.vis.params.axisLabel.xPosition : ""
+                };
+                config.axis.y.label = {
+                    "text": $scope.vis.params.axisLabel.y,
+                    "position": (typeof $scope.vis.params.axisLabel.yPosition != "undefined") ? $scope.vis.params.axisLabel.yPosition : ""
+                };
+                config.axis.y2.label = {
+                    "text": $scope.vis.params.axisLabel.y2,
+                    "position": (typeof $scope.vis.params.axisLabel.y2Position != "undefined") ? $scope.vis.params.axisLabel.y2Position : ""
+                };
 
                 // hide/show legend
                 config.legend.hide = $scope.vis.params.hide_legend;
