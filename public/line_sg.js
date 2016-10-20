@@ -1,5 +1,5 @@
 define(function (require) {
-  
+
   // we need to load the css ourselves
   require('plugins/line_sg/line_sg.less');
 
@@ -23,15 +23,15 @@ define(function (require) {
       template: require('plugins/line_sg/line_sg.html'),
       params: {
         defaults: {
-          configLine: {},
-	  configLine_threshold_data: '',
-	  configLine_threshold_value1: 80,
-	  configLine_threshold_color1: "#ffaa00",
-	  configLine_threshold_value2: 90,
-	  configLine_threshold_color2: "#ff0000",
-          configLinegrouped: "none",
-	  configLine_xrotate: 0,
-	  configLine_autoscale: false
+            configLine: {},
+            configLine_threshold_data: '',
+            configLine_threshold_value1: 80,
+            configLine_threshold_color1: "#ffaa00",
+            configLine_threshold_value2: 90,
+            configLine_threshold_color2: "#ff0000",
+            configLinegrouped: "none",
+            configLine_xrotate: 0,
+            configLine_autoscale: false
         },
         editor: require('plugins/line_sg/line_sg_params.html')
       },

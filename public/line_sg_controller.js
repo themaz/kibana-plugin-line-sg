@@ -162,7 +162,7 @@ define(function (require) {
 	        config.axis.y2.max = ( typeof $scope.vis.params.configLine.rangemaxy2 != "undefined" ) ? autoscale(parseInt($scope.vis.params.configLine.rangemaxy2), "max", "y2", $scope.vis.params.configLine.axisy, $scope.vis.params.configLine_autoscale, subchart) : "";
 
         // hide/show legend
-            config.legend.hide = ( typeof $scope.vis.params.hide_legend != "undefined" ) ? $scope.vis.params.hide_legend : false;
+            config.legend.hide = $scope.vis.params.hide_legend;
 
 		// set Y Grid Lines
 		config.grid = {};
