@@ -261,6 +261,7 @@ define(function(require) {
                     var h = (elem.height() / subcharts);
                 }
                 var w = elem.width();
+                config.size = {};
                 config.size.width = w;
                 config.size.height = h;
 
