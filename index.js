@@ -1,12 +1,9 @@
 'use strict';
 
-module.exports = function (kibana) {
-
-  return new kibana.Plugin({
-
-    uiExports: {
-      visTypes: ['plugins/line_sg/line_sg']
-    }
-
-  });
+module.exports = function(kibana) {
+    return new kibana.Plugin({
+        uiExports: {
+            visTypes: ['plugins/line_sg/line_sg']
+        }
+    });
 };
