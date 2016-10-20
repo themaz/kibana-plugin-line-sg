@@ -265,6 +265,7 @@ define(function(require) {
                 config.size.width = w;
                 config.size.height = h;
 
+                config.padding = {};
                 config.padding.right = 40;
 
                 // generate c3 chart
