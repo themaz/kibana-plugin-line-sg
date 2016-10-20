@@ -268,7 +268,7 @@ define(function(require) {
                 config.padding = {};
                 config.padding.right = 40;
 
-                if (vis.params.configLine.type[subchart] == "bar") {
+                if ($scope.vis.params.configLine.type[subchart] == "bar") {
                     config.bar = {
                         "width": {
                             "ratio": 0.9
