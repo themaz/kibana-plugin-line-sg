@@ -253,9 +253,6 @@ define(function(require) {
                     }]
                 } : {};
 
-                // generate c3 chart
-                $scope.chart[subchart] = c3.generate(config);
-
                 // resize element chart
                 var elem = $(idchart[0]).closest('div.visualize-chart');
                 if (subcharts < 2) {
@@ -264,10 +261,13 @@ define(function(require) {
                     var h = (elem.height() / subcharts);
                 }
                 var w = elem.width();
-                $scope.chart[subchart].resize({
-                    height: h,
-                    width: w - 40
-                });
+                config.size.width = w;
+                config.size.height = h;
+
+                config.padding.right = 40;
+
+                // generate c3 chart
+                $scope.chart[subchart] = c3.generate(config);
             }
         }
 
@@ -440,7 +440,7 @@ define(function(require) {
                         for (var subchart in metrics) {
                             $scope.chart[subchart].resize({
                                 height: h,
-                                width: w - 40
+                                width: w
                             });
                         }
                         hold = elem.height();
