@@ -268,6 +268,14 @@ define(function(require) {
                 config.padding = {};
                 config.padding.right = 40;
 
+                if (vis.params.configLine.type[subchart] == "bar") {
+                    config.bar = {
+                        "width": {
+                            "ratio": 0.9
+                        }
+                    };
+                }
+
                 // generate c3 chart
                 $scope.chart[subchart] = c3.generate(config);
             }
